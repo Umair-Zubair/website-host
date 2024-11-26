@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Canvas</title>
+</head>
+<body>
+    <canvas id="canvas3d"></canvas>
+
+    <script type="module">
+        import { Application } from 'https://unpkg.com/@splinetool/runtime@latest/build/runtime.js'; // CDN for the module
+
+        const canvas = document.getElementById('canvas3d');
+        const app = new Application(canvas);
+
+        // Load the Spline scene
+        app.load('https://prod.spline.design/i04iXPXzyN8Qo939/scene.splinecode')
+            .then(() => {
+                // Initialize color states
+                let currentColorIndex = 0;
+
+                // Define the color states in an array
+                const colors = [
+                    { color1: 100, color2: 0, color3: 0 }, // First color state (default)
+                    { color1: 0, color2: 100, color3: 0 }, // Second color state
+                    { color1: 0, color2: 0, color3: 100 }  // Third color state
+                ];
+
+                // Function to apply color based on the current index
+                function applyColor() {
+                    const color = colors[currentColorIndex];
+                    console.log('Applying color:', color); // Log the color being applied
+                    app.setVariables(color); // Updated to use `app` instead of `spline`
+                    currentColorIndex = (currentColorIndex + 1) % colors.length; // Cycle through the colors
+                }
+
+                // Apply the first color (default color) immediately on load
+                const initialColor = colors[0];
+                console.log('Initial color applied:', initialColor); // Log the initial color
+                app.setVariables(initialColor); // Set initial color
+
+                // Change color every 5 seconds
+                setInterval(applyColor, 5000); // 5000ms = 5 seconds
+            })
+            .catch(error => console.error('Error loading Spline scene:', error));
+    </script>
+</body>
+</html>

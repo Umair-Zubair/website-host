@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+
+.can-page body {
+    font-family: Poppins;
+    margin: 0;
+}
+
+.can-page header {
+    color: #eee;
+    width: 1200px;
+    max-width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 50px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
+
+.can-page header .logo {
+    font-weight: bold;
+}
+
+.can-page .menu li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.can-page header .menu {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-weight: 500;
+}
+
+.can-page .carousel {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    margin-top: -50px;
+}
+
+.can-page .list {
+    width: 100%;
+    height: 100%;
+}
+
+.can-page .item {
+    width: 100%;
+    height: 100%;
+    background-color: var(--background);
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    display: none;
+}
+
+.can-page .item img.fruit {
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 15;
+    pointer-events: none;
+}
+
+.can-page .item .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 12rem;
+    color: #eee;
+    font-weight: bold;
+    font-family: system-ui;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.can-page .item.active {
+    display: block;
+}
+
+.can-page .item.hidden {
+    display: block;
+    pointer-events: none;
+    background-color: transparent;
+    z-index: 1;
+}
+
+.can-page #prev,
+.can-page #next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid #eee9;
+    background-color: #eee5;
+    color: #eee;
+    font-size: x-large;
+    font-family: monospace;
+    cursor: pointer;
+    z-index: 15;
+}
+
+.can-page #prev {
+    left: 20px;
+}
+
+.can-page #next {
+    right: 20px;
+}
+
+@keyframes toActive {
+    from {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes toOut {
+    from {
+        top: 50%;
+        opacity: 1;
+    }
+}
+
+.can-page .item.active img.fruit {
+    animation: toActive 0.5s ease-in-out 1;
+}
+
+.can-page .item.hidden img.fruit {
+    animation: toOut 0.8s ease-in-out 1;
+    top: -100%;
+    opacity: 0;
+}
+
+.can-page .item.active .content {
+    animation: toActive 0.8s ease-in-out 1;
+}
+
+.can-page .item.hidden .content {
+    opacity: 0;
+}
+
+.can-page .carousel.right .item.active img.fruit {
+    animation: toActivePrev 0.5s ease-in-out 1;
+}
+
+.can-page .carousel.right .item.hidden img.fruit {
+    animation: toOut 0.8s ease-in-out 1;
+    top: 100%;
+    opacity: 0;
+}
+
+.can-page .carousel.right .item.active .content {
+    animation: toActivePrev 0.8s ease-in-out 1;
+}
+
+@keyframes toActivePrev {
+    from {
+        top: 0;
+        opacity: 0;
+    }
+}
+
+:root {
+    --width-mockup: calc(371px / 1.5);
+    --height-mockup: calc(673px / 1.5);
+}
+
+.can-page .mockup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    --left: 0%;
+    transform: translate(-50%, -50%);
+    height: var(--height-mockup);
+    width: var(--width-mockup);
+    background: url(images/mockup.png) 0 0 no-repeat, url(images/SURGE.png) var(--left) 0;
+    background-size: auto 100%;
+    background-blend-mode: multiply;
+    -webkit-mask-image: url(images/mockup.png);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: auto 100%;
+    transition: background 0.5s;
+}
+
+.can-page .leaves {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    background-image: url(images/leaves.png);
+    background-size: 100%;
+    top: calc((50% - (var(--height-mockup) / 1.7)));
+    left: calc((50% + (var(--width-mockup) / 5)));
+}
+
+.can-page .shadow {
+    width: var(--width-mockup);
+    height: 100px;
+    background-color: #0008;
+    border-radius: 50%;
+    position: absolute;
+    top: calc((50% + (var(--height-mockup) / 2)));
+    left: 50%;
+    transform: translateX(-50%);
+    filter: blur(20px);
+}
+
+@media screen and (max-width: 768px) {
+    .can-page .item .content {
+        transform: translate(-50%, -50%) scale(.5);
+    }
+
+    .can-page .item img.fruit {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

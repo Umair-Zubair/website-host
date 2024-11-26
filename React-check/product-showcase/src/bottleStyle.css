@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.spline-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.spline-container canvas {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.spline-container #prev,
+.spline-container #next {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(238, 238, 238, 0.3);
+    border: 1px solid rgba(238, 238, 238, 0.1);
+    color: #eee;
+    font-size: x-large;
+    font-family: monospace;
+    cursor: pointer;
+    z-index: 15;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.spline-container #prev:hover,
+.spline-container #next:hover {
+    background-color: rgba(238, 238, 238, 0.5);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.spline-container #prev {
+    left: 20px;
+}
+
+.spline-container #next {
+    right: 20px;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1440px) {
+    .spline-container {
+        scale: 0.95;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .spline-container {
+        scale: 0.9;
+    }
+
+    .spline-container #prev,
+    .spline-container #next {
+        width: 40px;
+        height: 40px;
+        font-size: large;
+    }
+}
+
+/* @media screen and (max-width: 768px) {
+    .spline-container {
+        scale: 0.8;
+    }
+
+    .spline-container #prev,
+    .spline-container #next {
+        width: 35px;
+        height: 35px;
+        font-size: medium;
+    }
+} */
+
+/* @media screen and (max-width: 480px) {
+    .spline-container {
+        scale: 0.7;
+    }
+
+    .spline-container #prev,
+    .spline-container #next {
+        width: 30px;
+        height: 30px;
+        font-size: small;
+        left: 10px;
+        right: 10px;
+    }
+} */
+
+/* Additional Touch/Mobile Improvements */
+@media (hover: none) and (pointer: coarse) {
+    .spline-container #prev,
+    .spline-container #next {
+        width: 60px;
+        height: 60px;
+        background-color: rgba(238, 238, 238, 0.5);
+    }
+}

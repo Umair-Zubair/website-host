@@ -1,1 +1,0 @@
-# 3D-product-showcase

@@ -1,0 +1,13 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "api/**/*.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "env": {
+      "DATABASE_URL": "postgresql://surgedb_owner:w0VzJF8UuiLj@ep-lucky-morning-a1chosnh.ap-southeast-1.aws.neon.tech/surgedb?sslmode=require"
+    }
+  }
+  

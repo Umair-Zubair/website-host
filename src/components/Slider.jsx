@@ -31,7 +31,7 @@ const Slider = () => {
             key={item.id}
             className={`item ${index === activeIndex ? 'active' : ''}`}
             style={{
-              backgroundImage: `url(${item.sliderImageUrl || 'images/default.jpg'})`,
+              backgroundImage: `url(${item.sliderImageUrl})`, // Direct URL from the database
               backgroundPosition: 'center',
               backgroundSize: 'cover',
             }}

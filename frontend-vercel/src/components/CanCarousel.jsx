@@ -42,7 +42,7 @@ const CanCarousel = () => {
           </div>
         ))}
       </div>
-      <div className="leaves"><img src="images/leaves.png" alt="Leaves"/></div>
+      <div className="leaves"></div>
       <MockupDisplay left={mockupLeft} />
       <div className="shadow"></div>
       <div className="arrow">

@@ -6,8 +6,8 @@ const MockupDisplay = ({ left }) => (
     style={{
       '--left': `${left}%`,
       backgroundImage: `
-        url(images/mockup.png), 
-        url(images/SURGE.png)`
+        url(https://res.cloudinary.com/dfuedbntn/image/upload/v1732781646/mockup_yeywcb.png),
+        url(https://res.cloudinary.com/dfuedbntn/image/upload/v1732781646/SURGE_jfqvut.png)`,
     }}
   ></div>
 );

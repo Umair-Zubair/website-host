@@ -3,7 +3,7 @@ const cors = require('cors'); // Import CORS
 
 // Apply CORS middleware
 const corsOptions = {
-  origin: 'http://localhost:5173', // Replace with your frontend's URL
+  origin: 'https://frontend-vercel-sooty.vercel.app', // Replace with your frontend's URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 };
 
